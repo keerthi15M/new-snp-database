@@ -1,0 +1,130 @@
+/* App.css */
+.container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Hero Card for Important Results */
+.result-hero-card {
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(10, 132, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    }
+
+    .result-hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #0A84FF;
+    border-radius: 4px 0 0 4px;
+    }
+
+    .result-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    }
+
+    .result-hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    }
+
+    .result-hero-label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #0A84FF;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    }
+
+  /* Complex Table Styles */
+.complex-table-wrapper {
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 0.375rem;
+  }
+  
+  .complex-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    background-color: white;
+  }
+  
+  .complex-table th {
+    background-color: #f8f9fa;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    border: 1px solid #eee;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .complex-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #eee;
+    vertical-align: top;
+  }
+  
+  .complex-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .complex-table tr:hover {
+    background-color: #f0f1f2;
+  }

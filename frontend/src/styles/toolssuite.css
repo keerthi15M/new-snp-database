@@ -1,0 +1,281 @@
+
+/* Base Styles */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: hsl(222, 47%, 11%);
+    background-color: hsl(210, 33%, 99%);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 242, 245, 0.8) 100%);
+    z-index: -1;
+  }
+  
+  /* Layout */
+  .min-height-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .text-center {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  /* Typography */
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.7);
+    animation: fadeUp 0.5s ease-out;
+    animation-delay: 100ms;
+  }
+  
+  .main-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+    animation: fadeUp 0.5s ease-out;
+    animation-delay: 200ms;
+  }
+  
+  .main-description {
+    font-size: 1.125rem;
+    color: hsl(215, 16%, 47%);
+    margin-bottom: 2.5rem;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeUp 0.5s ease-out;
+    animation-delay: 300ms;
+  }
+  
+  /* Tool Grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 64rem;
+    animation: fadeUp 0.5s ease-out;
+    animation-delay: 400ms;
+  }
+  
+  @media (min-width: 640px) {
+    .tools-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .tools-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  /* Tool Buttons */
+  .tool-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease-in-out;
+    animation: scaleIn 0.3s ease-out;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .tool-button.blue { border-top: 4px solid #0A84FF; animation-delay: 500ms; }
+  .tool-button.green { border-top: 4px solid #30D158; animation-delay: 600ms; }
+  .tool-button.orange { border-top: 4px solid #FF9F0A; animation-delay: 700ms; }
+  .tool-button.purple { border-top: 4px solid #BF5AF2; animation-delay: 800ms; }
+  
+  .tool-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+  
+  .tool-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.06);
+    transition: opacity 0.3s ease;
+  }
+  
+  .tool-button:hover::after {
+    opacity: 1;
+  }
+  
+  .tool-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .tool-button.blue .tool-icon { color: #0A84FF; }
+  .tool-button.green .tool-icon { color: #30D158; }
+  .tool-button.orange .tool-icon { color: #FF9F0A; }
+  .tool-button.purple .tool-icon { color: #BF5AF2; }
+  
+  .tool-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .tool-description {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .tool-button:hover .tool-description {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: hsl(215, 16%, 47%);
+    animation: fadeUp 0.5s ease-out;
+    animation-delay: 900ms;
+  }
+  
+  /* Tool Page Styles */
+  .page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  .content-wrapper {
+    max-width: 48rem;
+    width: 100%;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(222, 47%, 11%);
+    margin-bottom: 2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  .back-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .page-description {
+    font-size: 1.125rem;
+    color: hsl(215, 16%, 47%);
+    margin-bottom: 2rem;
+  }
+  
+  .content-box {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .coming-soon {
+    text-align: center;
+    color: hsl(215, 16%, 47%);
+    margin: 0;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeUp {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
