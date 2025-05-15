@@ -5,6 +5,8 @@ import '../styles/VEPTool.css';
 import JsonViewer from './JSONViewer.jsx';
 import SNPInfo from '../components/SNPInfo.jsx';
 import SnpSelector from '../components/SnpSelector';
+import { Button_chart } from '../components/lib/button.jsx';
+import DataVisualization from '../components/DataVisualization.jsx';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;; 
 
@@ -168,6 +170,20 @@ function VEPTool() {
                     <button onClick={() => setIsCardOpen((prev) => !prev)}>View Transcript Consequences</button>
                     <button onClick={handleButton2Click}>View Consequence Distribution</button>
                     {showModal && <SNPInfo snpId={variant} onClose={closeModal} />}
+                    {/* <div className="flex justify-center">
+                        <Button_chart 
+                            onClick={() => setIsModalOpen(true)}
+                            className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-medium"
+                        >
+                            View Distribution Chart
+                        </Button_chart>
+                    </div>
+                    {isModalOpen && (
+                        <DataVisualization 
+                        data={data} 
+                        onClose={() => setIsModalOpen(false)}
+                        />
+                    )} */}
                 </div>
             ) : (
                 <p>Please Enter a Variant</p>

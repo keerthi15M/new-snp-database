@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import PieChart from './PieChart';
 import '../styles/SNPInfo.css';
+import BarChart_1 from './BarChart';
+import DataVisualization from './DataVisualization';
+import { DistributionBarChart } from './charts/DistributionBarChart';
 
 const SNPInfo = ({ snpId, onClose }) => {
   const [snpData, setSnpData] = useState(null);
@@ -44,10 +47,15 @@ const SNPInfo = ({ snpId, onClose }) => {
     return acc;
   }, {});
 
-  const pieChartData = {
-    labels: Object.keys(consequenceCounts),
-    values: Object.values(consequenceCounts),
-  };
+  // const pieChartData = {
+  //   labels: Object.keys(consequenceCounts),
+  //   values: Object.values(consequenceCounts),
+  // };
+
+  const ChartData = Object.entries(consequenceCounts).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }));
 
   return (
     <div className="modal">
@@ -55,9 +63,14 @@ const SNPInfo = ({ snpId, onClose }) => {
         <button className="close-btn" onClick={onClose}>×</button>
         <h2>SNP: {id}</h2>
         <p>Most Severe Consequence: {most_severe_consequence}</p>
-        <div className="charts">
-          <PieChart data={pieChartData} title="Consequence Distribution" />
-        </div>
+        {/* <div className="p-5"> */}
+          <BarChart_1 data={ChartData} title="Consequence Distribution" />
+          {/* <DistributionBarChart data={ChartData} title="Consequence Distribution" /> */}
+        {/* </div> */}
+        {/* <DataVisualization 
+          data={consequenceCounts} 
+          onClose={() => setIsModalOpen(false)}
+        /> */}
       </div>
     </div>
   );
